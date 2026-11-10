@@ -1,0 +1,181 @@
+/* ATLAS UI Kit: primitive → semantic → component. Все цвета живут здесь. */
+:root {
+  /* 1. Примитивы: значения без привязки к роли. */
+  --base-white: #ffffff;
+  --base-blue-300: #8bbcff;
+  --base-blue-200: #b0d1ff;
+  --base-blue-100: #cee2ff;
+  --base-blue-700: #1853a4;
+  --base-blue-800: #113c79;
+  --base-blue-900: #0e3264;
+  --base-slate-50: #f6f8fc;
+  --base-slate-100: #eef3f9;
+  --base-slate-200: #d9e2eb;
+  --base-slate-400: #76859a;
+  --base-slate-600: #546376;
+  --base-slate-950: #142338;
+  --base-night-950: #101923;
+  --base-night-900: #192536;
+  --base-night-800: #223247;
+  --base-night-700: #3e526a;
+  --base-night-400: #a1b2c4;
+  --base-night-200: #b8c7d9;
+  --base-night-50: #eef4fa;
+  --base-sky-800: #155e8a;
+  --base-sky-50: #eaf6ff;
+  --base-sky-300: #91d0fa;
+  --base-sky-950: #142e42;
+  --base-green-800: #18724d;
+  --base-green-50: #ecf9f1;
+  --base-green-300: #86dcb0;
+  --base-green-950: #142f29;
+  --base-red-800: #a12735;
+  --base-red-50: #fff1f2;
+  --base-red-300: #ffabb5;
+  --base-red-950: #3c202d;
+  --base-amber-800: #8a4b00;
+  --base-amber-50: #fff6e5;
+  --base-amber-300: #ffd18a;
+  --base-amber-950: #382d1c;
+  --base-focus-light: #174a94;
+  --base-shadow-light: 0 10px 35px rgba(11, 32, 57, 0.055);
+  --base-shadow-dark: 0 10px 35px rgba(0, 0, 0, 0.16);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+
+  --font-family-body: "Segoe UI", "Noto Sans", Arial, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-display: clamp(2.15rem, 3.5vw, 3.5rem);
+  --line-height-tight: 1.2;
+  --line-height-body: 1.55;
+  --font-weight-normal: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 750;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.125rem;
+  --motion-fast: 140ms ease;
+
+  /* 2. Семантика: светлая тема по умолчанию. */
+  --color-page: var(--base-slate-50);
+  --color-surface: var(--base-white);
+  --color-surface-subtle: var(--base-slate-100);
+  --color-text: var(--base-slate-950);
+  --color-text-muted: var(--base-slate-600);
+  --color-border: var(--base-slate-200);
+  --color-border-control: var(--base-slate-400);
+  --color-primary: var(--base-blue-700);
+  --color-link: var(--base-blue-700);
+  --color-primary-hover: var(--base-blue-800);
+  --color-primary-active: var(--base-blue-900);
+  --color-on-primary: var(--base-white);
+  --color-focus-ring: var(--base-focus-light);
+  --color-info: var(--base-sky-800);
+  --color-info-bg: var(--base-sky-50);
+  --color-success: var(--base-green-800);
+  --color-success-bg: var(--base-green-50);
+  --color-error: var(--base-red-800);
+  --color-error-bg: var(--base-red-50);
+  --color-warning: var(--base-amber-800);
+  --color-warning-bg: var(--base-amber-50);
+  --shadow-surface: var(--base-shadow-light);
+  color-scheme: light;
+
+  /* 3. Токены компонентов: роль и геометрия. */
+  --button-bg-primary: var(--color-primary);
+  --button-text-primary: var(--color-on-primary);
+  --button-bg-secondary: var(--color-surface-subtle);
+  --button-bg-hover: var(--color-border);
+  --button-text-secondary: var(--color-text);
+  --button-text-ghost: var(--color-link);
+  --button-height: 2.75rem;
+  --button-padding-inline: var(--space-5);
+  --control-height: 2.75rem;
+  --control-padding-inline: var(--space-4);
+  --control-bg: var(--color-surface);
+  --control-text: var(--color-text);
+  --control-border: var(--color-border-control);
+  --control-placeholder: var(--color-text-muted);
+  --component-gap: var(--space-3);
+  --alert-padding: var(--space-4);
+  --alert-color-info: var(--color-info);
+  --alert-color-success: var(--color-success);
+  --alert-color-error: var(--color-error);
+  --alert-color-warning: var(--color-warning);
+}
+
+/* Система управляет темой только при отсутствии ручного выбора. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-page: var(--base-night-950);
+    --color-surface: var(--base-night-900);
+    --color-surface-subtle: var(--base-night-800);
+    --color-text: var(--base-night-50);
+    --color-text-muted: var(--base-night-200);
+    --color-border: var(--base-night-700);
+    --color-border-control: var(--base-night-400);
+    --color-primary: var(--base-blue-300);
+    --color-link: var(--base-blue-300);
+    --color-primary-hover: var(--base-blue-200);
+    --color-primary-active: var(--base-blue-100);
+    --color-on-primary: var(--base-night-950);
+    --color-focus-ring: var(--base-blue-300);
+    --color-info: var(--base-sky-300);
+    --color-info-bg: var(--base-sky-950);
+    --color-success: var(--base-green-300);
+    --color-success-bg: var(--base-green-950);
+    --color-error: var(--base-red-300);
+    --color-error-bg: var(--base-red-950);
+    --color-warning: var(--base-amber-300);
+    --color-warning-bg: var(--base-amber-950);
+    --shadow-surface: var(--base-shadow-dark);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --color-page: var(--base-night-950);
+  --color-surface: var(--base-night-900);
+  --color-surface-subtle: var(--base-night-800);
+  --color-text: var(--base-night-50);
+  --color-text-muted: var(--base-night-200);
+  --color-border: var(--base-night-700);
+  --color-border-control: var(--base-night-400);
+  --color-primary: var(--base-blue-300);
+  --color-link: var(--base-blue-300);
+  --color-primary-hover: var(--base-blue-200);
+  --color-primary-active: var(--base-blue-100);
+  --color-on-primary: var(--base-night-950);
+  --color-focus-ring: var(--base-blue-300);
+  --color-info: var(--base-sky-300);
+  --color-info-bg: var(--base-sky-950);
+  --color-success: var(--base-green-300);
+  --color-success-bg: var(--base-green-950);
+  --color-error: var(--base-red-300);
+  --color-error-bg: var(--base-red-950);
+  --color-warning: var(--base-amber-300);
+  --color-warning-bg: var(--base-amber-950);
+  --shadow-surface: var(--base-shadow-dark);
+  color-scheme: dark;
+}
+
+/* Плотность независима от темы: шесть переопределений без копий компонентов. */
+:root[data-density="compact"] {
+  --button-height: 2.25rem;
+  --control-height: 2.25rem;
+  --button-padding-inline: var(--space-3);
+  --control-padding-inline: var(--space-3);
+  --component-gap: var(--space-2);
+  --alert-padding: var(--space-3);
+}

@@ -1,0 +1,7 @@
+dist/
+node_modules/
+.openai/*
+!.openai/hosting.json
+.DS_Store
+Thumbs.db
+*.log
